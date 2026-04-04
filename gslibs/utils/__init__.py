@@ -7,7 +7,7 @@ coordinate manipulation, output parsing, and common operations.
 
 from .coordinates_io import *
 from .plumed import plumed_outfile_reader, plumed_outfile_plotter
-from .common import get_colors, wait_for_runs, parse_var, parse_vars
+from .common import get_colors, wait_for_runs, parse_vars
 from .filesystem import backup_move
 from .orca import orca_engrad_reader
 
@@ -29,7 +29,6 @@ __all__ = [
     # Common utilities
     'get_colors',
     'wait_for_runs',
-    'parse_var',
     'parse_vars',
     # Filesystem utilities
     'backup_move',

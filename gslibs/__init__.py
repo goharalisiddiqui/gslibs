@@ -37,7 +37,7 @@ from .drivers.driverutils.slurm import slurm_driver
 # Import utility functions
 from .utils.coordinates_io import *
 from .utils.plumed import plumed_outfile_reader, plumed_outfile_plotter
-from .utils.common import get_colors, wait_for_runs, parse_var, parse_vars
+from .utils.common import get_colors, wait_for_runs, parse_vars
 from .utils.filesystem import backup_move
 
 __all__ = [
@@ -61,7 +61,6 @@ __all__ = [
     # Common utilities
     'get_colors',
     'wait_for_runs',
-    'parse_var',
     'parse_vars',
     'backup_move',
 ]
