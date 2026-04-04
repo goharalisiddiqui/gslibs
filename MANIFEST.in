@@ -1,0 +1,13 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include MANIFEST.in
+recursive-include gslibs *.py
+recursive-include gslibs *.yml
+recursive-include gslibs *.yaml
+recursive-include gslibs *.json
+recursive-include gslibs *.txt
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
+prune .git

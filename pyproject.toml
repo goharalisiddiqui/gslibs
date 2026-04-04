@@ -1,0 +1,172 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gs-utils"
+version = "0.1.0"
+description = "Computational chemistry and materials science simulation toolkit"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Gohar Ali Siddiqui", email = "goharalisiddiqui@gmail.com"}
+]
+maintainers = [
+    {name = "Gohar Ali Siddiqui", email = "goharalisiddiqui@gmail.com"}
+]
+keywords = [
+    "computational-chemistry",
+    "materials-science",
+    "molecular-dynamics",
+    "density-functional-theory",
+    "slurm",
+    "hpc",
+    "lammps",
+    "cp2k",
+    "orca",
+    "plumed"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: System :: Distributed Computing",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "ase>=3.22.0,<4.0.0",
+    "numpy>=2.2.0,<3.0.0",
+    "pandas>=2.3.0,<3.0.0",
+    "matplotlib>=3.10.0,<4.0.0",
+    "pymatgen>=2025.0.0,<2026.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov",
+    "black",
+    "isort",
+    "flake8",
+    "mypy",
+    "pre-commit",
+]
+docs = [
+    "sphinx>=4.0",
+    "sphinx-rtd-theme",
+    "numpydoc",
+    "myst-parser",
+]
+test = [
+    "pytest>=6.0",
+    "pytest-cov",
+    "pytest-mock",
+]
+
+[project.urls]
+Homepage = "https://github.com/goharalisiddiqui/gs-utils"
+Repository = "https://github.com/goharalisiddiqui/gs-utils.git"
+Documentation = "https://github.com/goharalisiddiqui/gs-utils"
+Changelog = "https://github.com/goharalisiddiqui/gs-utils/blob/main/CHANGELOG.md"
+"Bug Reports" = "https://github.com/goharalisiddiqui/gs-utils/issues"
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gslibs*"]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yml", "*.yaml", "*.json", "*.txt"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["gslibs"]
+known_third_party = ["ase", "numpy", "pandas", "matplotlib", "pymatgen"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers --disable-warnings"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = ["gslibs"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "setup.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+disallow_untyped_decorators = false
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "ase.*",
+    "pymatgen.*",
+    "matplotlib.*",
+    "pandas.*",
+]
+ignore_missing_imports = true
