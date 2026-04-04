@@ -1,4 +1,4 @@
-# GS-Utils: Computational Chemistry and Materials Science Toolkit
+# GSLIBS: Computational Chemistry and Materials Science Toolkit
 
 A Python package providing drivers and utilities for running computational chemistry and materials science simulations through SLURM job scheduler.
 
@@ -25,7 +25,7 @@ A Python package providing drivers and utilities for running computational chemi
 
 ```bash
 git clone <repository_url>
-cd gs-utils
+cd gslibs
 pip install -e .
 ```
 
@@ -129,7 +129,7 @@ plumed_outfile_plotter("COLVAR", columns=["CV"], title="Collective Variable")
 ## Package Structure
 
 ```
-gs-utils/
+gslibs/
 ├── gslibs/
 │   ├── drivers/           # Simulation drivers
 │   │   ├── base.py        # Base driver class
@@ -324,25 +324,13 @@ md.run()
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Citation
-
-If you use gs-utils in your research, please cite:
-
-```bibtex
-@software{gsutils2024,
-  title = {GS-Utils: Computational Chemistry and Materials Science Toolkit},
-  author = {Seemab, Gohar},
-  year = {2024},
-  url = {https://github.com/username/gs-utils}
-}
-```
 
 ## Support
 
 For questions, issues, or feature requests:
 
-- **GitHub Issues**: [Create an issue](https://github.com/username/gs-utils/issues)
-- **Email**: gohar.seemab@oist.jp
+- **GitHub Issues**: [Create an issue](https://github.com/username/gslibs/issues)
+- **Email**: goharalisiddiqui@gmail.com 
 
 ## Changelog
 

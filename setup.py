@@ -1,5 +1,5 @@
 """
-Setup script for gs-utils package.
+Setup script for gslibs package.
 
 This setup.py is provided for backward compatibility with older packaging tools.
 For modern installations, prefer using pyproject.toml with pip install.
@@ -46,16 +46,16 @@ extras_require["all"] = list(set(
 ))
 
 setup(
-    name="gs-utils",
+    name="gslibs",
     version="0.1.0",
     description="Computational chemistry and materials science simulation toolkit",
     author="Gohar Ali Siddiqui",
     author_email="goharalisiddiqui@gmail.com",
-    url="https://github.com/goharalisiddiqui/gs-utils",
+    url="https://github.com/goharalisiddiqui/gslibs",
     project_urls={
-        "Repository": "https://github.com/goharalisiddiqui/gs-utils.git",
-        "Documentation": "https://github.com/goharalisiddiqui/gs-utils",
-        "Bug Reports": "https://github.com/goharalisiddiqui/gs-utils/issues",
+        "Repository": "https://github.com/goharalisiddiqui/gslibs.git",
+        "Documentation": "https://github.com/goharalisiddiqui/gslibs",
+        "Bug Reports": "https://github.com/goharalisiddiqui/gslibs/issues",
     },
     packages=find_packages(include=["gslibs", "gslibs.*"]),
     package_data={
