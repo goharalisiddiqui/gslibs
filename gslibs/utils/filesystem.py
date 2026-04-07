@@ -26,7 +26,7 @@ def backup_move(entity):
     backup = entity + f".bak{i}"
     shutil.move(entity, backup)
 
-def create_rundir(path: str, stem: str, nexp: str, overwrite=False):
+def create_rundir(path: str, stem: str, nexp: str, overwrite=False) -> str:
     '''
     Create a run directory with incremental naming to avoid overwriting existing runs.
 
@@ -64,6 +64,7 @@ def create_rundir(path: str, stem: str, nexp: str, overwrite=False):
         import shutil
         shutil.rmtree(workdir, ignore_errors=True)
         os.mkdir(workdir)
+    return workdir
 
 def output_to_file(workdir, filename="out.txt"):
     '''
