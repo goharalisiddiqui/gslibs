@@ -31,3 +31,9 @@ def check_limits(value: int, min_value: int = None, max_value: int = None):
         raise ValueError(f"Value {value} is less than minimum allowed {min_value}.")
     if max_value is not None and value > max_value:
         raise ValueError(f"Value {value} is greater than maximum allowed {max_value}.")
+
+def check_dict_contains_keys(d: dict, required_keys: list):
+    """Checks if the provided dictionary contains the required keys."""
+    missing_keys = [key for key in required_keys if key not in d]
+    if missing_keys:
+        raise KeyError(f"Dictionary is missing required keys: {missing_keys}")
