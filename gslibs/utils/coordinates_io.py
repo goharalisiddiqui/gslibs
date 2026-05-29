@@ -111,7 +111,7 @@ def lammpsdata_to_ase(lammps_file, extra_info=None, start=0, stop=0, step=1):
     """
     if not os.path.exists(lammps_file):
         raise FileNotFoundError(f"File {lammps_file} not found.")
-    frame = ase_read(lammps_file, format="lammps-data", index=f'{start}:{'' if stop == 0 else stop}:{step}', **extra_info if extra_info is not None else {})
+    frame = ase_read(lammps_file, format="lammps-data", index=f"{start}:{'' if stop == 0 else stop}:{step}", **extra_info if extra_info is not None else {})
     return frame
 
 def ase_to_lammpsdata(atoms, extra_info=None):
@@ -142,7 +142,7 @@ def ase_to_lammpsdata(atoms, extra_info=None):
 def lammpsdump_to_ase(traj_file, extra_info=None, start=0, stop=0, step=1):
     if not os.path.exists(traj_file):
         raise FileNotFoundError(f"File {traj_file} not found.")
-    return ase_read(traj_file, format="lammps-dump-text", index=f'{start}:{'' if stop == 0 else stop}:{step}', **extra_info if extra_info is not None else {})
+    return ase_read(traj_file, format="lammps-dump-text", index=f"{start}:{'' if stop == 0 else stop}:{step}", **extra_info if extra_info is not None else {})
 
 def pdb_to_ase(pdb_file, cell = None, pbc = None, start=0, stop=0, step=1):
     """
@@ -175,7 +175,7 @@ def pdb_to_ase(pdb_file, cell = None, pbc = None, start=0, stop=0, step=1):
     """
     if not os.path.exists(pdb_file):
         raise FileNotFoundError(f"File {pdb_file} not found.")
-    structures = ase_read(pdb_file, format="proteindatabank", index=f'{start}:{'' if stop == 0 else stop}:{step}')
+    structures = ase_read(pdb_file, format="proteindatabank", index=f"{start}:{'' if stop == 0 else stop}:{step}")
     return add_extra_information_to_ase(structures, {"cell": cell, "pbc": pbc})
 
 def ase_to_pdb(atoms):
@@ -186,7 +186,7 @@ def ase_to_pdb(atoms):
 def xyz_to_ase(xyz_file, cell = None, pbc = None, start=0, stop=0, step=1):
     if not os.path.exists(xyz_file):
         raise FileNotFoundError(f"File {xyz_file} not found.")
-    structures = ase_read(xyz_file, format="extxyz", index=f'{start}:{'' if stop == 0 else stop}:{step}')
+    structures = ase_read(xyz_file, format="extxyz", index=f"{start}:{'' if stop == 0 else stop}:{step}")
     return add_extra_information_to_ase(structures, {"cell": cell, "pbc": pbc})
 
 def ase_to_xyz(atoms, extxyz=True):
